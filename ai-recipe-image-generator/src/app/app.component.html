@@ -1,0 +1,17 @@
+<div class="App">
+  <button [class.active]="activeTab === 'image-generator'"
+          (click)="handleTabChange('image-generator')">
+    Image Generator
+  </button>
+
+  <button [class.active]="activeTab === 'chat'"
+          (click)="handleTabChange('chat')">
+    Ask AI
+  </button>
+
+  <div class="tab-content">
+    <image-generator *ngIf="activeTab === 'image-generator'"></image-generator>
+    <app-chat *ngIf="activeTab === 'chat'"></app-chat>
+
+  </div>
+</div>

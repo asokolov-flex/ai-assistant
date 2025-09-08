@@ -1,0 +1,21 @@
+<div class="tab-content">
+  <h2>Generate Image</h2>
+
+  <input
+    type="text"
+    [(ngModel)]="prompt"
+    placeholder="Enter prompt for image"
+  />
+
+  <button (click)="generateImage()">Generate Image</button>
+
+  <div class="image-grid">
+    <img *ngFor="let url of imageUrls; let i = index"
+         [src]="url"
+         [alt]="'Generated ' + i" />
+
+    <div *ngFor="let _ of [].constructor(4 - imageUrls.length); let i = index"
+         class="empty-image-slot">
+    </div>
+  </div>
+</div>
