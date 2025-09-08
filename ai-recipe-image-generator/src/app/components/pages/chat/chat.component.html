@@ -1,0 +1,18 @@
+<div class="chat-container">
+  <h2>Ask AI</h2>
+
+  <div class="chat-window">
+    <div *ngFor="let msg of chatService.messages"
+         class="message" [ngClass]="msg.sender">
+      <div class="bubble">{{ msg.text }}</div>
+    </div>
+    <div *ngIf="loading" class="message ai">
+      <div class="bubble typing">⌛ AI typing...</div>
+    </div>
+  </div>
+
+  <div class="input-row">
+    <input [(ngModel)]="userQuestion" placeholder="Type your question..." (keyup.enter)="askQuestion()"/>
+    <button (click)="askQuestion()">Send</button>
+  </div>
+</div>
